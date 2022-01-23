@@ -1,4 +1,5 @@
 from __future__ import division
+
 from PIL import Image, ImageDraw, ImageFont
 from contextlib import closing
 from os.path import isfile
@@ -26,9 +27,11 @@ font = ImageFont.truetype("LuckiestGuy.ttf", fontsize)
 with closing(Image.open("base.jpg")) as base:
     draw = ImageDraw.Draw(base, "RGB")
     draw.text(
-        (300, 1000 - len(ment)),
+        (round(2500 / 2), round(2500 / 2) + 50),
         ment,
         font=font,
+        align="center",
+        anchor="mm"
     )
     base.save("%s.jpg"%ment)
     base.show()
